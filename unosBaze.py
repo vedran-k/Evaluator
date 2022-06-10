@@ -62,7 +62,7 @@ class unesiBazu(Frame):
             razred=self.tE3.get()
         s='INSERT INTO Ucenici (ID, Ime, Prezime, Razred, Ocjena) '
         s+='VALUES ({0},"{1}","{2}","{3}","{4}")'.format(id_br+1,ime,prezime,razred,"")
-        print(s)
+        #print(s)
         self.cur.execute(s)
         self.conn.commit()
         return
