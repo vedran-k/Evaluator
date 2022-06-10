@@ -6,6 +6,7 @@ from sqlite3 import *
 from unosBaze import *
 from baza import *
 from evaluator import*
+from prikazBaze import *
 
 
 class Program(Frame):
@@ -36,6 +37,11 @@ class Program(Frame):
         prozor3 = Evaluator(f3)
         prozor3.grid(row=1,column=1)
         n.add(f3, text='Evaluator', underline=0)
+
+        f4 = ttk.Frame(n)
+        prozor4 = prikaziBazu(f4)
+        prozor4.grid(row=1,column=1)
+        n.add(f4, text='Prikaži rezultate', underline=0)
         return
 
 def main():

@@ -42,7 +42,7 @@ class Evaluator(Frame):
         #self.Test.config()
         self.Test['yscrollcommand']= scrollbar1.set
         scrollbar1['command'] = self.Test.yview
-        #self.Test.columnconfigure(1,weight=2)
+        
           
         self.Test.bind("<<ListboxSelect>>", self.OtvoriGradivo)
 
@@ -83,14 +83,14 @@ class Evaluator(Frame):
         self.Razred.bind("<<ListboxSelect>>", self.ShowStudents)
         scrollbar2 = Scrollbar(self,orient=VERTICAL)
         scrollbar2.grid(column=5,row=2,sticky=N+S, pady = 10)
-        self.Test['yscrollcommand']= scrollbar2.set
+        self.Razred['yscrollcommand']= scrollbar2.set
         scrollbar2['command'] = self.Razred.yview
         
         self.Ucenik = Listbox(self, height=4,selectforeground = 'red', selectmode = SINGLE, font = f, fg = 'blue')
         self.Ucenik.grid(row = 3, column = 4, padx=(10,0), pady=10)
         scrollbar3 = Scrollbar(self,orient=VERTICAL)
         scrollbar3.grid(column=5,row=3,sticky=N+S, pady = 10)
-        self.Test['yscrollcommand']= scrollbar3.set
+        self.Ucenik['yscrollcommand']= scrollbar3.set
         scrollbar3['command'] = self.Ucenik.yview
         return
 
@@ -98,7 +98,7 @@ class Evaluator(Frame):
         p=self.Test.curselection()
         if len(p)>0:
             self.gradivo=self.gradiva[int(p[0])]
-        print(self.gradivo)
+        #print(self.gradivo)
         return
     
     def OtvoriGrupu(self,e=None):
@@ -109,8 +109,7 @@ class Evaluator(Frame):
             self.Zadatak.delete(0,len(self.Zadaci))
             for t in self.Zadaci:
                 self.Zadatak.insert(END, t)
-        print(p)
-            
+        #print(p)    
         return
     
     def OtvoriZadatak(self,e=None):
@@ -137,8 +136,9 @@ class Evaluator(Frame):
         return
     
     def Evaluate(self):
-        self.pathZadatka="C:\\Users\\Korisnik\\Dropbox\\V.gimnazija\\Python\\Evaluator\\"+self.gradivo+"\\"+self.grupa+"\\"+self.zadatak+"\\"    
+        self.pathZadatka="C:\\Users\\Korisnik\\Dropbox\\V.gimnazija\\Python\\Evaluator\\SluzbenaRjesenja\\"+self.gradivo+"\\"+self.grupa+"\\"+self.zadatak+"\\"    
         p=self.Ucenik.curselection()
+        print(p)
         bodovi=0
         if self.pathRjesenja:
             try:
